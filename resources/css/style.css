@@ -1,0 +1,6 @@
+.main_container{
+	max-width: 1000px;
+	border: 1px solid #d6d6d6;
+	min-height: 400px;
+	margin: 30px auto;
+}
