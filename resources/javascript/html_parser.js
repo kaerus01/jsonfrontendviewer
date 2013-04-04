@@ -160,6 +160,7 @@ html_parser.html_results = {
 	are_general_stats_built:false,
 	
 	
+	// show the general stats page
 	show_general_stats:function(){
 	
 		// lazy load since stats should not change
@@ -172,6 +173,7 @@ html_parser.html_results = {
 		this._transition('general_statistics');
 	},
 	
+	// show the urls page
 	show_urls:function(){
 		this._build_urls();
 		this._transition('urls');
@@ -185,6 +187,8 @@ html_parser.html_results = {
 		$('#general_statistics').html(Mustache.render(html_parser.templates.get_template('general_statistics'), html_parser.urls.get_general_stats()));
 	},
 	
+	
+	// hide every results page except for the one that corresponds to the button clicked
 	_transition:function(id_of_one_to_be_shown){
 	
 		$.each($('.result_container'), function(index, value){
