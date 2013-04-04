@@ -4,11 +4,36 @@
 */
 var html_parser = {
 
-	parse_file_location:'',
-	parsed_data:null,
-	
 	init:function(params){
-		this.parse_file_location = params.parse_file_location;
+		// load the files
+		this.loader.load(params.parse_file_location, this._after_load);
+		
+	},
+	
+	_after_load:function(){
+		html_parser.control_panel.init();
+	}
+	
+	
+}
+
+
+
+/**
+*  Object in control of getting all the data loaded
+*/
+html_parser.loader = {
+	loaded_callback:function(){},
+	image_src:'resources/images/ajax-loader.gif',
+	parse_file_location:'',
+	
+	load:function(parse_file_location, loaded_callback){
+	
+		this.loaded_callback = loaded_callback;
+	
+		this._place_load_image();
+		
+		this.parse_file_location = parse_file_location;
 		
 		this._load_parse_file();
 		
@@ -16,17 +41,16 @@ var html_parser = {
 		
 	},
 	
-	_build_initial:function(){
-		html_parser.control_panel.init();
+	_place_load_image:function(){
+		$('#content_container').prepend('<img class="loader_image" src="'+this.image_src+'" alt="Loading"/>');
 	},
 	
 	_load_parse_file:function(){
-		var self = this;
 		$.ajax({
 		  url: this.parse_file_location,
 		  dataType:'json',
 		}).done(function( data ) {
-			self.parsed_data = data;
+			html_parser.urls.set_data(data);
 		}).fail(function(jqXHR, text_status){
 			alert("Could not read in text file: "+text_status);
 			console.log(text_status);
@@ -34,27 +58,13 @@ var html_parser = {
 	},
 	
 	_load_templates:function(){
-		html_parser.templates.get_templates(this._build_initial);
-	},
-}
-
-html_parser:loader{
-	have this do the loading and the gif for loading
-}
-
-
-/**
-*	Object in charge of managing the control panel
-*/
-html_parser.control_panel = {
-	init:function(){
-		
+		html_parser.templates.get_templates(this._done_loading);
 	},
 	
-	build:(){
-		have this build out the control panel
+	_done_loading:function(){
+		$('.loader_image').remove();
+		html_parser.loader.loaded_callback();
 	}
-	
 	
 }
 
@@ -70,8 +80,9 @@ html_parser.templates = {
 	* To add another, simply add another variable to the temps object.  The variable name should be the name of the template file in resources/templates
 	*/
 	temps:{
-		control_panel_skeleton:'',
-		control_panel_general_stats:''
+		control_panel:'',
+		general_statistics:'',
+		url_table:''
 	},
 	
 	/**
@@ -95,6 +106,7 @@ html_parser.templates = {
 	},
 	
 	_template_loaded:function(template_name, data, callback){
+	
 		this.temps[template_name] = data;
 		this.loaded_count++;
 		
@@ -106,18 +118,122 @@ html_parser.templates = {
 		}
 	}
 }
- 
 
 /**
-* Object in charge of searching data
+*	Object in charge of managing the control panel
 */
-html_parser.search = {
+html_parser.control_panel = {
+
+	// the result page that gets shown on load
+	default_page:'general_stats',
+	
+	init:function(){
+		this._build();
+		this._bind();
+	},
+	
+	_build:function(){
+		$('#control_panel').html(html_parser.templates.get_template('control_panel'));
+		
+		if(this.default_page == 'general_stats'){
+			html_parser.html_results.show_general_stats();
+		}
+	},
+	
+	_bind:function(){
+		$('#general_stats_button').click(function(){
+			html_parser.html_results.show_general_stats();
+		});
+		$('#urls_button').click(function(){
+			html_parser.html_results.show_urls();
+		});
+		
+		
+	}
+}
+
+/**
+*	Object in charge of handling the results portion
+*/
+html_parser.html_results = {
+
+	are_general_stats_built:false,
+	
+	
+	show_general_stats:function(){
+	
+		// lazy load since stats should not change
+		if(this.are_general_stats_built == false){
+			this._build_general_stats();
+			
+			this.are_general_stats_built = true;
+		}
+		
+		this._transition('general_statistics');
+	},
+	
+	show_urls:function(){
+		this._build_urls();
+		this._transition('urls');
+	},
+	
+	_build_urls:function(){
+		$('#urls_results').html(Mustache.render(html_parser.templates.get_template('url_table'), html_parser.urls.get_all_urls()));
+	},
+	
+	_build_general_stats:function(){
+		$('#general_statistics').html(Mustache.render(html_parser.templates.get_template('general_statistics'), html_parser.urls.get_general_stats()));
+	},
+	
+	_transition:function(id_of_one_to_be_shown){
+	
+		$.each($('.result_container'), function(index, value){
+			value = $(value);
+			if(value.attr('id') == id_of_one_to_be_shown){
+				value.show();
+			}
+			else{
+				value.hide();
+			}
+		});
+	}
+	
+}
+
+ 
+ 
+/**
+* Object in charge of setting and searching the url data
+*/
+html_parser.urls = {
+	
+	data:null,
 	
 	/**
-	*	Returns all the urls from the parsed data
+	* Sets the url data
 	*/
-	get_urls:function(){
-		return html_parser.parsed_data.urls;
+	set_data:function(data){
+		this.data = data;
+	},
+	
+	/**
+	* Gets the data for the general statistics results page
+	*/
+	get_general_stats:function(){
+		return {
+			total_urls: this.data.total_urls,
+			total_same_domain_urls: this.data.total_same_domain_urls,
+			total_misspellings: this.data.total_misspellings,
+			total_pages: this.data.total_pages,
+			total_time: this.data.total_time
+		}
+	},
+	
+	/**
+	*  Returns all of the urls
+	*/
+	get_all_urls:function(){
+		return this.data;
 	},
 	
 	/**
@@ -127,11 +243,11 @@ html_parser.search = {
 		var result = [];
 		var urls = this.get_urls()
 		for(var i in urls){
-			console.log(urls[i]);
 			if(urls[i].html_asset != null && urls[i].html_asset.misspellings.length > 0){
 				result.push(urls[i]);
 			}
 		}
 		return result;
 	}
-}
+} 
+
