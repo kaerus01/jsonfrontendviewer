@@ -100,7 +100,7 @@ html_parser.templates = {
 	
 	_load_template:function(template_name, callback){
 		var self = this;
-		$.get('resources/templates/'+template_name, function(data) {
+		$.get('resources/templates/'+template_name+'.txt', function(data) {
 				self._template_loaded(template_name, data, callback);
 		});
 	},
