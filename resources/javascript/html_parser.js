@@ -4,17 +4,15 @@
 */
 var html_parser = {
 
-	init:function(params){
+	init:function(){
 		// load the files
-		this.loader.load(params.parse_file_location, this._after_load);
+		this.loader.load(this._after_load);
 		
 	},
 	
 	_after_load:function(){
 		html_parser.control_panel.init();
 	}
-	
-	
 }
 
 /**
@@ -23,36 +21,19 @@ var html_parser = {
 html_parser.loader = {
 	loaded_callback:function(){},
 	image_src:'resources/images/ajax-loader.gif',
-	parse_file_location:'',
 	
-	load:function(parse_file_location, loaded_callback){
+	load:function(loaded_callback){
 	
 		this.loaded_callback = loaded_callback;
 	
 		this._place_load_image();
 		
-		this.parse_file_location = parse_file_location;
-		
-		this._load_parse_file();
+		this._done_loading();
 		
 	},
 	
 	_place_load_image:function(){
 		$('#content_container').append('<img class="loader_image" src="'+this.image_src+'" alt="Loading"/>');
-	},
-	
-	_load_parse_file:function(){
-                var self = this;
-		$.ajax({
-		  url: this.parse_file_location,
-		  dataType:'json'
-		}).done(function( data ) {
-			html_parser.urls.set_data(data);
-                        self._done_loading();
-		}).fail(function(jqXHR, text_status){
-			alert("Could not read in text file: "+text_status);
-			console.log(text_status);
-		});
 	},
 	
 	_done_loading:function(){
@@ -231,6 +212,7 @@ html_parser.html_results = {
 */
 html_parser.urls = {
 	
+        // this gets set in data.js
 	data:null,
 	
 	/**

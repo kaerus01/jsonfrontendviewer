@@ -1,4 +1,4 @@
-{
+html_parser.urls.data = {
         "total_urls":10,
         "total_time":1063,
         "total_misspellings":7,
