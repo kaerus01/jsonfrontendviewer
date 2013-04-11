@@ -17,8 +17,6 @@ var html_parser = {
 	
 }
 
-
-
 /**
 *  Object in control of getting all the data loaded
 */
@@ -37,28 +35,24 @@ html_parser.loader = {
 		
 		this._load_parse_file();
 		
-		this._load_templates();
-		
 	},
 	
 	_place_load_image:function(){
-		$('#content_container').prepend('<img class="loader_image" src="'+this.image_src+'" alt="Loading"/>');
+		$('#content_container').append('<img class="loader_image" src="'+this.image_src+'" alt="Loading"/>');
 	},
 	
 	_load_parse_file:function(){
+                var self = this;
 		$.ajax({
 		  url: this.parse_file_location,
-		  dataType:'json',
+		  dataType:'json'
 		}).done(function( data ) {
 			html_parser.urls.set_data(data);
+                        self._done_loading();
 		}).fail(function(jqXHR, text_status){
 			alert("Could not read in text file: "+text_status);
 			console.log(text_status);
 		});
-	},
-	
-	_load_templates:function(){
-		html_parser.templates.get_templates(this._done_loading);
 	},
 	
 	_done_loading:function(){
@@ -80,9 +74,36 @@ html_parser.templates = {
 	* To add another, simply add another variable to the temps object.  The variable name should be the name of the template file in resources/templates
 	*/
 	temps:{
-		control_panel:'',
-		general_statistics:'',
-		url_table:''
+		general_statistics:'<dl>\n\
+                                        <dt>Total URLs Visited</dt>\n\
+                                        <dd>{{total_urls}}</dd>\n\
+                                        <dt>Total URLs Visited in Your Domain</dt>\n\
+                                        <dd>{{total_same_domain_urls}}</dd>\n\
+                                        <dt>Total HTML Pages in Your Domain</dt>\n\
+                                        <dd>{{total_same_domain_pages}}</dd>\n\
+                                        <dt>Total Images</dt>\n\
+                                        <dd>{{total_images}}</dd>\n\
+                                        <dt>Total Misspellings</dt>\n\
+                                        <dd>{{total_misspellings}}</dd>\n\
+                                        <dt>Total Time to Retrieve URLs</dt>\n\
+                                        <dd>{{total_time}} milliseconds</dd>\n\
+                                </dl>',
+		url_table:'<table class="table table-striped">\n\
+                                <thead>\n\
+                                        <th>URL</th>\n\
+                                        <th>HTTP Code</th>\n\
+                                        <th>Retrieval Time</th>\n\
+                                </thead>\n\
+                                <tbody>\n\
+                                        {{#urls}}\n\
+                                                <tr>\n\
+                                                        <td>{{url}}</td>\n\
+                                                        <td>{{http_code}}</td>\n\
+                                                        <td>{{retrieval_time}}</td>\n\
+                                                </tr>\n\
+                                        {{/urls}}\n\
+                                </tbody>\n\
+                        </table>'
 	},
 	
 	/**
@@ -133,7 +154,6 @@ html_parser.control_panel = {
 	},
 	
 	_build:function(){
-		$('#control_panel').html(html_parser.templates.get_template('control_panel'));
 		
 		if(this.default_page == 'general_stats'){
 			html_parser.html_results.show_general_stats();
@@ -228,8 +248,9 @@ html_parser.urls = {
 			total_urls: this.data.total_urls,
 			total_same_domain_urls: this.data.total_same_domain_urls,
 			total_misspellings: this.data.total_misspellings,
-			total_pages: this.data.total_pages,
-			total_time: this.data.total_time
+			total_same_domain_pages: this.data.total_same_domain_pages,
+			total_time: this.data.total_time,
+			total_images: this.data.total_images
 		}
 	},
 	
