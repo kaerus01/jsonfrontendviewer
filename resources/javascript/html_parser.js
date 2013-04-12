@@ -43,115 +43,7 @@ html_parser.loader = {
 	
 }
 
-/**
-* Object in charge of managing templates
-*/
-html_parser.templates = {
 
-	loaded_count:0,
-	
-	/**
-	* Templates to be loaded
-	* To add another, simply add another variable to the temps object.  The variable name should be the name of the template file in resources/templates
-	*/
-	temps:{
-		general_statistics:'<dl>\n\
-                                        <dt>Total URLs Visited</dt>\n\
-                                        <dd>{{total_urls}}</dd>\n\
-                                        <dt>Total URLs Visited in Your Domain</dt>\n\
-                                        <dd>{{total_same_domain_urls}}</dd>\n\
-                                        <dt>Total HTML Pages in Your Domain</dt>\n\
-                                        <dd>{{total_same_domain_pages}}</dd>\n\
-                                        <dt>Total Images</dt>\n\
-                                        <dd>{{total_images}}</dd>\n\
-                                        <dt>Total Misspellings</dt>\n\
-                                        <dd>{{total_misspellings}}</dd>\n\
-                                        <dt>Total Time to Retrieve URLs</dt>\n\
-                                        <dd>{{total_time}} milliseconds</dd>\n\
-                                </dl>',
-		url_table:'<table class="table table-striped">\n\
-                                <thead>\n\
-                                        <th>URL</th>\n\
-                                        <th>HTTP Code</th>\n\
-                                        <th>Retrieval Time</th>\n\
-                                </thead>\n\
-                                <tbody>\n\
-                                        {{#urls}}\n\
-                                                <tr>\n\
-                                                        <td>{{url}}</td>\n\
-                                                        <td>{{http_code}}</td>\n\
-                                                        <td>{{retrieval_time}}</td>\n\
-                                                </tr>\n\
-                                        {{/urls}}\n\
-                                </tbody>\n\
-                        </table>'
-	},
-	
-	/**
-	* Gets a template based off the templates name
-	*/
-	get_template:function(which){
-		return this.temps[which];
-	},
-	
-	get_templates:function(callback){
-		for(var template_name in this.temps){
-			this._load_template(template_name, callback);
-		}
-	},
-	
-	_load_template:function(template_name, callback){
-		var self = this;
-		$.get('resources/templates/'+template_name+'.txt', function(data) {
-				self._template_loaded(template_name, data, callback);
-		});
-	},
-	
-	_template_loaded:function(template_name, data, callback){
-	
-		this.temps[template_name] = data;
-		this.loaded_count++;
-		
-		var size = 0;
-		for(var i in this.temps){size++;}
-		
-		if(size == this.loaded_count){
-			callback();
-		}
-	}
-}
-
-/**
-*	Object in charge of managing the control panel
-*/
-html_parser.control_panel = {
-
-	// the result page that gets shown on load
-	default_page:'general_stats',
-	
-	init:function(){
-		this._build();
-		this._bind();
-	},
-	
-	_build:function(){
-		
-		if(this.default_page == 'general_stats'){
-			html_parser.html_results.show_general_stats();
-		}
-	},
-	
-	_bind:function(){
-		$('#general_stats_button').click(function(){
-			html_parser.html_results.show_general_stats();
-		});
-		$('#urls_button').click(function(){
-			html_parser.html_results.show_urls();
-		});
-		
-		
-	}
-}
 
 /**
 *	Object in charge of handling the results portion
@@ -178,6 +70,7 @@ html_parser.html_results = {
 	show_urls:function(){
 		this._build_urls();
 		this._transition('urls');
+		$('#url_search_table').tablesorter();
 	},
 	
 	_build_urls:function(){
@@ -207,54 +100,5 @@ html_parser.html_results = {
 
  
  
-/**
-* Object in charge of setting and searching the url data
-*/
-html_parser.urls = {
-	
-        // this gets set in data.js
-	data:null,
-	
-	/**
-	* Sets the url data
-	*/
-	set_data:function(data){
-		this.data = data;
-	},
-	
-	/**
-	* Gets the data for the general statistics results page
-	*/
-	get_general_stats:function(){
-		return {
-			total_urls: this.data.total_urls,
-			total_same_domain_urls: this.data.total_same_domain_urls,
-			total_misspellings: this.data.total_misspellings,
-			total_same_domain_pages: this.data.total_same_domain_pages,
-			total_time: this.data.total_time,
-			total_images: this.data.total_images
-		}
-	},
-	
-	/**
-	*  Returns all of the urls
-	*/
-	get_all_urls:function(){
-		return this.data;
-	},
-	
-	/**
-	*	Returns any url that contained a misspelling
-	*/
-	get_all_misspellings:function(){
-		var result = [];
-		var urls = this.get_urls()
-		for(var i in urls){
-			if(urls[i].html_asset != null && urls[i].html_asset.misspellings.length > 0){
-				result.push(urls[i]);
-			}
-		}
-		return result;
-	}
-} 
+
 
