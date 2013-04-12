@@ -1,0 +1,17 @@
+body{
+	background-color:#FFFFFF;
+}
+
+#top_container{
+	background-color: #8CE6FF;
+	padding: 20px;
+	border-bottom: 1px solid #363636;
+}
+
+#top_container h1{
+	margin: 0;
+}
+
+#content_container{
+	min-height: 400px;
+}
