@@ -47,31 +47,5 @@ html_parser.templates = {
 	*/
 	get_template:function(which){
 		return this.temps[which];
-	},
-	
-	get_templates:function(callback){
-		for(var template_name in this.temps){
-			this._load_template(template_name, callback);
-		}
-	},
-	
-	_load_template:function(template_name, callback){
-		var self = this;
-		$.get('resources/templates/'+template_name+'.txt', function(data) {
-				self._template_loaded(template_name, data, callback);
-		});
-	},
-	
-	_template_loaded:function(template_name, data, callback){
-	
-		this.temps[template_name] = data;
-		this.loaded_count++;
-		
-		var size = 0;
-		for(var i in this.temps){size++;}
-		
-		if(size == this.loaded_count){
-			callback();
-		}
 	}
 }
