@@ -9,19 +9,27 @@
 	<script src="resources/third_party_libs/table_sorter/jquery.tablesorter.widgets.js"></script>	
 	<link href="resources/third_party_libs/table_sorter/themes/bootstrap/bootstrap.css" rel="stylesheet" media="screen">
 
-	<script src="resources/javascript/html_parser.js"></script>
-        <script src="resources/javascript/templates.js"></script>
-        <script src="resources/javascript/control_panel.js"></script>
-	<script src="resources/javascript/urls.js"></script>
+        <script src="resources/javascript/html_parser.js"></script>
         
-        <script src="resources/javascript/data.js"></script>
+	<script src="resources/javascript/data/urls.js"></script>
+        <script src="resources/javascript/data/data.js"></script>
+        
+        <script src="resources/javascript/pages/general_statistics_page.js"></script>
+        <script src="resources/javascript/pages/urls_page.js"></script>
+        
+        <script src="resources/javascript/templates.js"></script>
+        <script src="resources/javascript/navigation.js"></script>
+        
+        
         
 	<link href="resources/third_party_libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="resources/third_party_libs/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 	
-	<link href="resources/css/style.css" rel="stylesheet">
+	<link href="resources/css/main.css" rel="stylesheet">
+        <link href="resources/css/navigation.css" rel="stylesheet">
+        <link href="resources/css/general_statistics_page.css" rel="stylesheet">
 	
 	<script>
 		$(document).ready(function(){
@@ -36,24 +44,24 @@
 	<h1>Web Doctor</h1>
 </div>
 <div id="content_container">
-	<ul id="control_panel">
-            <li class="control_panel_button" id="general_stats_button">General Statistics</li>
-            <li class="control_panel_button" id="urls_button">URLs</li>
+	<ul id="navigation">
+            <li class="navigation_button" id="general_statistics_navigation_button">General Statistics</li>
+            <li class="navigation_button" id="urls_navigation_button">URLs</li>
 	</ul>
 
-	<div id="results">
-		<div class="result_container" id="general_statistics">
+	<div id="pages">
+		<section class="page_container" id="general_statistics_page">
                     
                     
-                </div>
-		<div class="result_container" id="urls">
+                </section>
+		<section class="page_container" id="urls_page">
 			<p style="text-align:right;">
 				<input value="Search..."></input>
 			</p>
 			<div id="urls_results">
 			
 			</div>
-		</div>
+		</section>
 	</div>
 </div>
 	
