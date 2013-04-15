@@ -1,19 +1,23 @@
 html_parser.urls.data = {
-        "total_urls":10,
-        "total_time":1063,
+        "starting_url":"http://localhost/html_files_for_testing/",
+        "domain":"http://localhost/html_files_for_testing",
+        "total_urls":11,
+        "total_time":1595,
         "total_misspellings":7,
         "total_same_domain_pages":8,
-        "total_same_domain_urls":9,
-        "total_images":1,
+        "total_same_domain_urls":10,
+        "total_images":2,
 	"urls":[ 
 		{
                     "url":"http://localhost/html_files_for_testing/pages/one.html",
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
                     "content_type":"text/html",
-                    "retrieval_time":1,
+                    "retrieval_time":0,
                     "io_error":false,
                     "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
                     "content_length":409,
                     "last_modified":1364072738000,
                     "referencing_urls":[
@@ -40,9 +44,11 @@ html_parser.urls.data = {
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
                     "content_type":"text/html",
-                    "retrieval_time":1,
+                    "retrieval_time":2,
                     "io_error":false,
                     "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
                     "content_length":792,
                     "last_modified":1364445117000,
                     "referencing_urls":[
@@ -72,6 +78,8 @@ html_parser.urls.data = {
                     "retrieval_time":1,
                     "io_error":false,
                     "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
                     "content_length":196,
                     "last_modified":1363653498000,
                     "referencing_urls":[
@@ -98,9 +106,11 @@ html_parser.urls.data = {
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
                     "content_type":"text/html",
-                    "retrieval_time":0,
+                    "retrieval_time":1,
                     "io_error":false,
                     "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
                     "content_length":283,
                     "last_modified":1363650677000,
                     "referencing_urls":[
@@ -128,9 +138,11 @@ html_parser.urls.data = {
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
                     "content_type":"text/html",
-                    "retrieval_time":1,
+                    "retrieval_time":2,
                     "io_error":false,
                     "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
                     "content_length":252,
                     "last_modified":1364439288000,
                     "referencing_urls":[
@@ -153,6 +165,25 @@ html_parser.urls.data = {
                 }
                 ,
 		{
+                    "url":"http://localhost/html_files_for_testing/images/death_star.png",
+                    "http_code":200,
+		    "direct_parent":"http://localhost/html_files_for_testing/",
+                    "content_type":"image/png",
+                    "retrieval_time":1,
+                    "io_error":false,
+                    "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":1500,
+                    "last_modified":1365143550000,
+                    "referencing_urls":[
+                                "http://localhost/html_files_for_testing/",
+                                "http://localhost/html_files_for_testing/index.html"
+                    ],
+                    "html_asset":null
+                }
+                ,
+		{
                     "url":"http://localhost/html_files_for_testing/pages/image_no_alt_text.html",
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
@@ -160,6 +191,8 @@ html_parser.urls.data = {
                     "retrieval_time":1,
                     "io_error":false,
                     "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
                     "content_length":226,
                     "last_modified":1364440791000,
                     "referencing_urls":[
@@ -186,14 +219,19 @@ html_parser.urls.data = {
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
                     "content_type":"image/png",
-                    "retrieval_time":1,
+                    "retrieval_time":0,
                     "io_error":false,
                     "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
                     "content_length":20177,
                     "last_modified":1360528200000,
                     "referencing_urls":[
                                 "http://localhost/html_files_for_testing/",
-                                "http://localhost/html_files_for_testing/index.html"
+                                "http://localhost/html_files_for_testing/",
+                                "http://localhost/html_files_for_testing/index.html",
+                                "http://localhost/html_files_for_testing/index.html",
+                                "http://localhost/html_files_for_testing/pages/image_no_alt_text.html"
                     ],
                     "html_asset":null
                 }
@@ -203,11 +241,13 @@ html_parser.urls.data = {
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
                     "content_type":"text/html",
-                    "retrieval_time":1,
+                    "retrieval_time":0,
                     "io_error":false,
                     "malformed_url":false,
-                    "content_length":1152,
-                    "last_modified":1364444633000,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":1206,
+                    "last_modified":1365143742000,
                     "referencing_urls":[
                                 "http://localhost/html_files_for_testing/",
                                 "http://localhost/html_files_for_testing/pages/one.html",
@@ -236,8 +276,10 @@ html_parser.urls.data = {
                     "retrieval_time":13,
                     "io_error":false,
                     "malformed_url":false,
-                    "content_length":1152,
-                    "last_modified":1364444633000,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":1206,
+                    "last_modified":1365143742000,
                     "referencing_urls":[
                     ],
                     "html_asset":{
@@ -260,9 +302,11 @@ html_parser.urls.data = {
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
                     "content_type":"text/html; charset=UTF-8",
-                    "retrieval_time":549,
+                    "retrieval_time":762,
                     "io_error":false,
                     "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
                     "content_length":-1,
                     "last_modified":0,
                     "referencing_urls":[
