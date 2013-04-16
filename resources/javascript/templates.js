@@ -11,6 +11,10 @@ html_parser.templates = {
 	*/
 	temps:{
 		general_statistics:'<dl>\n\
+					<dt>Starting URL</dt>\n\
+					<dd>{{starting_url}}</dd>\n\
+					<dt>Domain</dt>\n\
+					<dd>{{domain}}</dd>\n\
                                         <dt>Total URLs Visited</dt>\n\
                                         <dd>{{total_urls}}</dd>\n\
                                         <dt>Total URLs Visited in Your Domain</dt>\n\
@@ -39,7 +43,16 @@ html_parser.templates = {
                                                 </tr>\n\
                                         {{/urls}}\n\
                                 </tbody>\n\
-                        </table>'
+                        </table>',
+		misspelling_items:'<h2>Misspelt words by Occurrence</h2><div class="main_misspelling_container">{{#result}}<div class="misspelling_container">\n\
+							<h3>{{name}}</h3>\n\
+							<dl>\n\
+								<dt>Number of occurrences</dt>\n\
+								<dd>{{occurrences}}</dd>\n\
+								<dt>URLs that the misspelling appears</dt>\n\
+								<dd><ul>{{#urls}}<li>{{.}}</li>{{/urls}}</ul></dd>\n\
+							</dl>\n\
+							</div>{{/result}}</div>'
 	},
 	
 	/**

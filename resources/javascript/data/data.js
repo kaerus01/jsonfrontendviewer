@@ -1,44 +1,13 @@
 html_parser.urls.data = {
         "starting_url":"http://localhost/html_files_for_testing/",
         "domain":"http://localhost/html_files_for_testing",
-        "total_urls":11,
-        "total_time":1595,
+        "total_urls":13,
+        "total_time":1582,
         "total_misspellings":7,
         "total_same_domain_pages":8,
-        "total_same_domain_urls":10,
+        "total_same_domain_urls":12,
         "total_images":2,
 	"urls":[ 
-		{
-                    "url":"http://localhost/html_files_for_testing/pages/one.html",
-                    "http_code":200,
-		    "direct_parent":"http://localhost/html_files_for_testing/",
-                    "content_type":"text/html",
-                    "retrieval_time":0,
-                    "io_error":false,
-                    "malformed_url":false,
-                    "timeout_error":false,
-                    "casting_error":false,
-                    "content_length":409,
-                    "last_modified":1364072738000,
-                    "referencing_urls":[
-                                "http://localhost/html_files_for_testing/",
-                                "http://localhost/html_files_for_testing/index.html"
-                    ],
-                    "html_asset":{
-                            "document_type":"&lt;!DOCTYPE html&gt;",
-                            "title":"One Page",
-                            "description":"Page one&#39;s description",
-                            "misspellings":[],
-                            "at_mentions":[],
-                            "hash_tags":[],
-                            "emails":[],
-                            "deprecated_tags":["font"],
-                            "poor_link_naming":[],
-                            "inputs_no_labels":[]
-                        }
-
-                }
-                ,
 		{
                     "url":"http://localhost/html_files_for_testing/pages/form_inputs_missing_labels.html",
                     "http_code":200,
@@ -102,38 +71,6 @@ html_parser.urls.data = {
                 }
                 ,
 		{
-                    "url":"http://localhost/html_files_for_testing/pages/two.html",
-                    "http_code":200,
-		    "direct_parent":"http://localhost/html_files_for_testing/",
-                    "content_type":"text/html",
-                    "retrieval_time":1,
-                    "io_error":false,
-                    "malformed_url":false,
-                    "timeout_error":false,
-                    "casting_error":false,
-                    "content_length":283,
-                    "last_modified":1363650677000,
-                    "referencing_urls":[
-                                "http://localhost/html_files_for_testing/",
-                                "http://localhost/html_files_for_testing/pages/one.html",
-                                "http://localhost/html_files_for_testing/index.html"
-                    ],
-                    "html_asset":{
-                            "document_type":"&lt;!DOCTYPE html&gt;",
-                            "title":"Two Page",
-                            "description":"",
-                            "misspellings":["yey","yey","yey"],
-                            "at_mentions":[],
-                            "hash_tags":["#hiyo!"],
-                            "emails":["jason.cowan@mso.umt.edu"],
-                            "deprecated_tags":[],
-                            "poor_link_naming":[],
-                            "inputs_no_labels":[]
-                        }
-
-                }
-                ,
-		{
                     "url":"http://localhost/html_files_for_testing/pages/poor_link_text.html",
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
@@ -162,25 +99,6 @@ html_parser.urls.data = {
                             "inputs_no_labels":[]
                         }
 
-                }
-                ,
-		{
-                    "url":"http://localhost/html_files_for_testing/images/death_star.png",
-                    "http_code":200,
-		    "direct_parent":"http://localhost/html_files_for_testing/",
-                    "content_type":"image/png",
-                    "retrieval_time":1,
-                    "io_error":false,
-                    "malformed_url":false,
-                    "timeout_error":false,
-                    "casting_error":false,
-                    "content_length":1500,
-                    "last_modified":1365143550000,
-                    "referencing_urls":[
-                                "http://localhost/html_files_for_testing/",
-                                "http://localhost/html_files_for_testing/index.html"
-                    ],
-                    "html_asset":null
                 }
                 ,
 		{
@@ -215,6 +133,138 @@ html_parser.urls.data = {
                 }
                 ,
 		{
+                    "url":"http://localhost/html_files_for_testing/resources/main.js",
+                    "http_code":200,
+		    "direct_parent":"http://localhost/html_files_for_testing/",
+                    "content_type":"application/javascript",
+                    "retrieval_time":2,
+                    "io_error":false,
+                    "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":17,
+                    "last_modified":1365998672000,
+                    "referencing_urls":[
+                                "http://localhost/html_files_for_testing/",
+                                "http://localhost/html_files_for_testing/index.html"
+                    ],
+                    "html_asset":null
+                }
+                ,
+		{
+                    "url":"http://umt.edu",
+                    "http_code":200,
+		    "direct_parent":"http://localhost/html_files_for_testing/",
+                    "content_type":"text/html; charset=UTF-8",
+                    "retrieval_time":821,
+                    "io_error":false,
+                    "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":-1,
+                    "last_modified":0,
+                    "referencing_urls":[
+                                "http://localhost/html_files_for_testing/",
+                                "http://localhost/html_files_for_testing/index.html"
+                    ],
+                    "html_asset":{
+                            "document_type":"",
+                            "title":"",
+                            "description":"",
+                            "misspellings":[],
+                            "at_mentions":[],
+                            "hash_tags":[],
+                            "emails":[],
+                            "deprecated_tags":[],
+                            "poor_link_naming":[],
+                            "inputs_no_labels":[]
+                        }
+
+                }
+                ,
+		{
+                    "url":"http://localhost/html_files_for_testing/pages/one.html",
+                    "http_code":200,
+		    "direct_parent":"http://localhost/html_files_for_testing/",
+                    "content_type":"text/html",
+                    "retrieval_time":1,
+                    "io_error":false,
+                    "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":409,
+                    "last_modified":1364072738000,
+                    "referencing_urls":[
+                                "http://localhost/html_files_for_testing/",
+                                "http://localhost/html_files_for_testing/index.html"
+                    ],
+                    "html_asset":{
+                            "document_type":"&lt;!DOCTYPE html&gt;",
+                            "title":"One Page",
+                            "description":"Page one&#39;s description",
+                            "misspellings":[],
+                            "at_mentions":[],
+                            "hash_tags":[],
+                            "emails":[],
+                            "deprecated_tags":["font"],
+                            "poor_link_naming":[],
+                            "inputs_no_labels":[]
+                        }
+
+                }
+                ,
+		{
+                    "url":"http://localhost/html_files_for_testing/pages/two.html",
+                    "http_code":200,
+		    "direct_parent":"http://localhost/html_files_for_testing/",
+                    "content_type":"text/html",
+                    "retrieval_time":1,
+                    "io_error":false,
+                    "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":283,
+                    "last_modified":1363650677000,
+                    "referencing_urls":[
+                                "http://localhost/html_files_for_testing/",
+                                "http://localhost/html_files_for_testing/pages/one.html",
+                                "http://localhost/html_files_for_testing/index.html"
+                    ],
+                    "html_asset":{
+                            "document_type":"&lt;!DOCTYPE html&gt;",
+                            "title":"Two Page",
+                            "description":"",
+                            "misspellings":["yey","yey","yey"],
+                            "at_mentions":[],
+                            "hash_tags":["#hiyo!"],
+                            "emails":["jason.cowan@mso.umt.edu"],
+                            "deprecated_tags":[],
+                            "poor_link_naming":[],
+                            "inputs_no_labels":[]
+                        }
+
+                }
+                ,
+		{
+                    "url":"http://localhost/html_files_for_testing/images/death_star.png",
+                    "http_code":200,
+		    "direct_parent":"http://localhost/html_files_for_testing/",
+                    "content_type":"image/png",
+                    "retrieval_time":1,
+                    "io_error":false,
+                    "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":1500,
+                    "last_modified":1365143550000,
+                    "referencing_urls":[
+                                "http://localhost/html_files_for_testing/",
+                                "http://localhost/html_files_for_testing/index.html"
+                    ],
+                    "html_asset":null
+                }
+                ,
+		{
                     "url":"http://localhost/html_files_for_testing/images/flag.png",
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
@@ -237,17 +287,65 @@ html_parser.urls.data = {
                 }
                 ,
 		{
-                    "url":"http://localhost/html_files_for_testing/index.html",
+                    "url":"http://localhost/html_files_for_testing/resources/main.css",
                     "http_code":200,
 		    "direct_parent":"http://localhost/html_files_for_testing/",
-                    "content_type":"text/html",
-                    "retrieval_time":0,
+                    "content_type":"text/css",
+                    "retrieval_time":1,
                     "io_error":false,
                     "malformed_url":false,
                     "timeout_error":false,
                     "casting_error":false,
-                    "content_length":1206,
-                    "last_modified":1365143742000,
+                    "content_length":22,
+                    "last_modified":1365999375000,
+                    "referencing_urls":[
+                                "http://localhost/html_files_for_testing/",
+                                "http://localhost/html_files_for_testing/index.html"
+                    ],
+                    "html_asset":null
+                }
+                ,
+		{
+                    "url":"http://localhost/html_files_for_testing/",
+                    "http_code":200,
+		    "direct_parent":"",
+                    "content_type":"text/html",
+                    "retrieval_time":14,
+                    "io_error":false,
+                    "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":1288,
+                    "last_modified":1365999400000,
+                    "referencing_urls":[
+                    ],
+                    "html_asset":{
+                            "document_type":"&lt;!DOCTYPE html&gt;",
+                            "title":"Index Page",
+                            "description":"",
+                            "misspellings":["html","alt"],
+                            "at_mentions":[],
+                            "hash_tags":[],
+                            "emails":[],
+                            "deprecated_tags":[],
+                            "poor_link_naming":[],
+                            "inputs_no_labels":[]
+                        }
+
+                }
+                ,
+		{
+                    "url":"http://localhost/html_files_for_testing/index.html",
+                    "http_code":200,
+		    "direct_parent":"http://localhost/html_files_for_testing/",
+                    "content_type":"text/html",
+                    "retrieval_time":1,
+                    "io_error":false,
+                    "malformed_url":false,
+                    "timeout_error":false,
+                    "casting_error":false,
+                    "content_length":1288,
+                    "last_modified":1365999400000,
                     "referencing_urls":[
                                 "http://localhost/html_files_for_testing/",
                                 "http://localhost/html_files_for_testing/pages/one.html",
@@ -258,66 +356,6 @@ html_parser.urls.data = {
                             "title":"Index Page",
                             "description":"",
                             "misspellings":["html","alt"],
-                            "at_mentions":[],
-                            "hash_tags":[],
-                            "emails":[],
-                            "deprecated_tags":[],
-                            "poor_link_naming":[],
-                            "inputs_no_labels":[]
-                        }
-
-                }
-                ,
-		{
-                    "url":"http://localhost/html_files_for_testing/",
-                    "http_code":200,
-		    "direct_parent":"",
-                    "content_type":"text/html",
-                    "retrieval_time":13,
-                    "io_error":false,
-                    "malformed_url":false,
-                    "timeout_error":false,
-                    "casting_error":false,
-                    "content_length":1206,
-                    "last_modified":1365143742000,
-                    "referencing_urls":[
-                    ],
-                    "html_asset":{
-                            "document_type":"&lt;!DOCTYPE html&gt;",
-                            "title":"Index Page",
-                            "description":"",
-                            "misspellings":["html","alt"],
-                            "at_mentions":[],
-                            "hash_tags":[],
-                            "emails":[],
-                            "deprecated_tags":[],
-                            "poor_link_naming":[],
-                            "inputs_no_labels":[]
-                        }
-
-                }
-                ,
-		{
-                    "url":"http://umt.edu",
-                    "http_code":200,
-		    "direct_parent":"http://localhost/html_files_for_testing/",
-                    "content_type":"text/html; charset=UTF-8",
-                    "retrieval_time":762,
-                    "io_error":false,
-                    "malformed_url":false,
-                    "timeout_error":false,
-                    "casting_error":false,
-                    "content_length":-1,
-                    "last_modified":0,
-                    "referencing_urls":[
-                                "http://localhost/html_files_for_testing/",
-                                "http://localhost/html_files_for_testing/index.html"
-                    ],
-                    "html_asset":{
-                            "document_type":"",
-                            "title":"",
-                            "description":"",
-                            "misspellings":[],
                             "at_mentions":[],
                             "hash_tags":[],
                             "emails":[],

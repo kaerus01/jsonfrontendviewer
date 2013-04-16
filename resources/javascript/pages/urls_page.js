@@ -19,7 +19,7 @@ html_parser.urls_page = {
     },
     
     _initial_build:function(){
-        this._get_where_to_place_table().html(Mustache.render(html_parser.templates.get_template('url_table'), html_parser.urls.get_all_urls()));
+        this._get_where_to_place_table().html(Mustache.render(html_parser.templates.get_template('url_table'), html_parser.urls.get_data()));
     },
     
     
