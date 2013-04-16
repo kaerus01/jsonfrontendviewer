@@ -14,9 +14,13 @@ html_parser.navigation = {
                 button:'urls_navigation_button',
                 page:html_parser.urls_page.get_page_container_id()
             },
-			misspellings:{
+	    	misspellings:{
 				button:'misspellings_navigation_button',
                 page:html_parser.misspellings_page.get_page_container_id()
+			},
+			accessibility:{
+				button:'accessibility_navigation_button',
+                page:html_parser.accessibility_page.get_page_container_id()
 			}
         },
 	
@@ -51,7 +55,7 @@ html_parser.navigation = {
         
         
                 // loop though the pages, hide others, show the one we want
-                $.each($('.page_container'), function(index, value){
+        $.each($('.page_container'), function(index, value){
 			value = $(value);
 			if(value.attr('id') == page_id_to_be_shown){
 				value.show();
@@ -82,7 +86,9 @@ html_parser.navigation = {
 		this._get_misspellings_button().click(function(){
                         self.transition(self.ids.misspellings.button, self.ids.misspellings.page);
 		});
-		
+		this._get_accessibility_button().click(function(){
+                        self.transition(self.ids.accessibility.button, self.ids.accessibility.page);
+		});
 	},
         
 	_get_general_statistics_button:function(){
@@ -95,6 +101,9 @@ html_parser.navigation = {
 	
 	_get_misspellings_button:function(){
 		return $('#'+this.ids.misspellings.button);
+	},
+	_get_accessibility_button:function(){
+		return $('#'+this.ids.accessibility.button);
 	}
 
         
