@@ -119,5 +119,17 @@ html_parser.urls = {
 		new_result.sort(sort_function);
 		
 		return new_result;
-	}
+	},
+        
+        get_all_poor_link_naming:function(){
+            var result = [];
+            var urls = this.get_all_urls();
+            
+            for(var i in urls){
+                if(urls[i].html_asset != null && urls[i].html_asset.poor_link_naming.length > 0){
+                    result.push(urls[i]);
+                }
+            }
+            return result;
+        }
 } 

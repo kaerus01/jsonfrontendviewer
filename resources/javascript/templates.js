@@ -6,8 +6,9 @@ html_parser.templates = {
 	loaded_count:0,
 	
 	/**
-	* Templates to be loaded
-	* To add another, simply add another variable to the temps object.  The variable name should be the name of the template file in resources/templates
+	* Templates for the application
+        * Simply add another attribute that is unique
+        * If you need to use it, call it in the get_template function that html_parser.templates provides
 	*/
 	temps:{
 		general_statistics:'<dl>\n\
@@ -52,7 +53,10 @@ html_parser.templates = {
 								<dt>URLs that the misspelling appears</dt>\n\
 								<dd><ul>{{#urls}}<li>{{.}}</li>{{/urls}}</ul></dd>\n\
 							</dl>\n\
-							</div>{{/result}}</div>'
+							</div>{{/result}}</div>',
+                accessibilities_page_poor_link_naming:'<div class="accessibility_container"><h2>Poor Link Naming</h2>\n\
+                                                        {{#.}} <dt>{{url}}</dt>{{#html_asset.poor_link_naming}} {{.}} {{/html_asset.poor_link_naming}}{{/.}}\n\
+                                                       </div>'
 	},
 	
 	/**

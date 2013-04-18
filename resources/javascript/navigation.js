@@ -14,14 +14,14 @@ html_parser.navigation = {
                 button:'urls_navigation_button',
                 page:html_parser.urls_page.get_page_container_id()
             },
-	    	misspellings:{
-				button:'misspellings_navigation_button',
+	    misspellings:{
+		button:'misspellings_navigation_button',
                 page:html_parser.misspellings_page.get_page_container_id()
-			},
-			accessibility:{
-				button:'accessibility_navigation_button',
+            },
+            accessibility:{
+		button:'accessibility_navigation_button',
                 page:html_parser.accessibility_page.get_page_container_id()
-			}
+            }
         },
 	
 	init:function(){
@@ -40,6 +40,9 @@ html_parser.navigation = {
                 }
 		else if(page_id_to_be_shown == this.ids.misspellings.page){
                     html_parser.misspellings_page.show();
+                }
+                else if(page_id_to_be_shown == this.ids.accessibility.page){
+                    html_parser.accessibility_page.show();
                 }
 
 		// loop though the buttons, show the one that needs to be shown

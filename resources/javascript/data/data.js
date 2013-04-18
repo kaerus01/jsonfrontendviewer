@@ -234,7 +234,7 @@ html_parser.urls.data = {
                             "document_type":"&lt;!DOCTYPE html&gt;",
                             "title":"Two Page",
                             "description":"",
-                            "misspellings":["yey","yey","yey"],
+                            "misspellings":["yey","yey","yey", "aaarrdvark", 'potatoe', 'jeeello'],
                             "at_mentions":[],
                             "hash_tags":["#hiyo!"],
                             "emails":["jason.cowan@mso.umt.edu"],
