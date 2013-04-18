@@ -58,7 +58,7 @@ html_parser.urls = {
 	},
 	
 	/**
-	 * Returns misspelling stuff
+	 * Returns all urls that have a misspelling, ordered by the occurence value, high to low
 	 */
 	get_all_misspellings_by_occurrence:function(){
 		var result = {};
